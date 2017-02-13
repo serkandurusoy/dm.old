@@ -1,0 +1,12 @@
+<template name="navLeft">
+  <div class="nav-left hidden-print">
+
+    <div class="list-group">
+      <a href="{{pathFor route='islerim'}}" class="list-group-item {{isActiveRoute regex='islerim'}}">İşlerim {{#if isCounts.islerim}}<span class="badge">{{isCounts.islerim}}</span>{{/if}}</a>
+      <a href="{{pathFor route='verdigimIsler'}}" class="list-group-item {{isActiveRoute regex='verdigimIsler'}}">Verdiğim İşler {{#if isCounts.verdigimIsler}}<span class="badge">{{isCounts.verdigimIsler}}</span>{{/if}}</a>
+      <a href="{{pathFor route='ilgilendigimIsler'}}" class="list-group-item {{isActiveRoute regex='ilgilendigimIsler'}}">İlgilendigim İşler {{#if isCounts.ilgilendigimIsler}}<span class="badge">{{isCounts.ilgilendigimIsler}}</span>{{/if}}</a>
+      <a href="{{pathFor route='isArsivim'}}" class="list-group-item {{isActiveRoute regex='isArsivim'}}">İş Arşivim</a>
+    </div>
+  </div>
+
+</template>

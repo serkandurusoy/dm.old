@@ -1,0 +1,87 @@
+<template name="exampleForm">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="sub-header">Section form</h2>
+        </div>
+        <div class="panel-body">
+          <form>
+            <div class="form-group">
+              <label class="control-label">Email</label>
+              <p class="form-control-static">email@example.com</p>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="disabledTextInput">Disabled input</label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input" disabled>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            </div>
+            <div class="form-group has-error has-feedback">
+              <label class="control-label" for="exampleInputEmail1">Email again</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email again">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="exampleInputFile">File input</label>
+              <input type="file" id="exampleInputFile">
+              <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="exampleInputAmount">Amount (in dollars)</label>
+              <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-try"></i></div>
+                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                <div class="input-group-addon">.00</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label checkbox-inline">
+                <input type="checkbox" name="inlineChekboxOptions" value="option1"> 1
+              </label>
+              <label class="control-label checkbox-inline">
+                <input type="checkbox" name="inlineChekboxOptions" value="option2"> 2
+              </label>
+              <label class="control-label checkbox-inline">
+                <input type="checkbox" name="inlineChekboxOptions" value="option3"> 3
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="control-label radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
+              </label>
+              <label class="control-label radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+              </label>
+              <label class="control-label radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
+              </label>
+            </div>
+            <select class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Check me out
+              </label>
+            </div>
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-info">Info</button>
+            <button class="btn btn-danger" disabled="disabled">Danger disabled</button>
+            <button class="btn btn-link">Link</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

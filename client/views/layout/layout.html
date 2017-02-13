@@ -1,0 +1,25 @@
+<template name="layout">
+  {{#if currentUser}}
+
+    {{> navTop}}
+    {{> navTopDown}}
+
+    {{> navLeft}}
+
+    <div class="container-fluid">
+      {{> yield}}
+    </div>
+
+  {{else}}
+    {{#if loggingIn}}
+      {{> loading}}
+    {{else}}
+      {{> loading}}
+    {{/if}}
+  {{/if}}
+  {{#if loginError}}
+    <div class="login-error-template">
+      <i>{{loginError}}</i>
+    </div>
+  {{/if}}
+</template>

@@ -1,0 +1,19 @@
+<template name="isEkle">
+  <div id="isEkleModal" class="modal fade">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-body">
+          {{#autoForm collection="Isler" id="isEkleForm" type="insert"}}
+            {{> afQuickField name="konu" autocomplete="off"}}
+            {{> afQuickField name="detay" rows=6}}
+            {{> afQuickField name="oncelik" options="allowed" noselect=true}}
+            {{> afQuickField name="vade" type="bootstrap-datepicker" value=tomorrow datePickerOptions=datePickerOptions}}
+            {{> afQuickField name="sorumlusu" type="select2" firstOption="Seçiniz..." options=optionsAllUsersExceptAdmin}}
+            {{> afQuickField name="etiketler" options="allowed" noselect=true}}
+            <button type="submit" class="btn btn-primary btn-lg pull-right">Talep Et</button>
+          {{/autoForm}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,165 @@
+<template name="is">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        {{#if ilgili}}
+          <div class="panel-heading">
+          <span class="pull-right">
+            <i class="fa fa-fw fa-arrow-circle-down dusuk {{activeOncelik 'Düşük'}} {{#if editableBySahibi}}editable{{/if}}" title="Düşük Öncelik"></i>
+            <i class="fa fa-fw fa-minus-circle normal {{activeOncelik 'Normal'}} {{#if editableBySahibi}}editable{{/if}}" title="Normal Öncelik"></i>
+            <i class="fa fa-fw fa-arrow-circle-up yuksek {{activeOncelik 'Yüksek'}} {{#if editableBySahibi}}editable{{/if}}" title="Yüksek Öncelik"></i>
+          </span>
+            <h3 class="panel-title">
+              <img src="{{sahibiUser.avatar}}?sz=50" class="img-circle img-is-sahibi" alt="İş Sahibi: {{sahibiUser.name}} {{sahibiUser.lastName}}" title="İş Sahibi: {{sahibiUser.name}} {{sahibiUser.lastName}}">{{#autolink}}{{konu}}{{/autolink}}
+            </h3>
+          </div>
+          <div class="panel-body">
+            <div class="well is-bilgi">
+            <span class="pull-right">
+              <i class="fa fa-fw fa-check-square durum {{durumKapali}} {{#if editableAcKapa}}editable{{/if}}" title="{{#if durumKapali}}İş Tamamlanmış{{#if editableAcKapa}}: Tekrar Aç{{/if}}{{else}}İş Devam Ediyor{{#if editableAcKapa}}: Tamamlandı Olarak İşaretle{{/if}}{{/if}}"></i>
+            </span>
+              <div>
+                {{#if editableBySahibi}}
+                  {{>sorumluEditable}}
+                {{else}}
+                  {{>sorumlu}}
+                {{/if}}
+                {{#if editable}}
+                  {{#each digerIlgilileri}}
+                    {{>digerIlgiliEditable}}
+                  {{/each}}
+                  {{#each ilgisizlerExceptAdmin}}
+                    {{>ilgisizEditable}}
+                  {{/each}}
+                {{else}}
+                  {{#each digerIlgilileri}}
+                    {{>digerIlgili}}
+                  {{/each}}
+                {{/if}}
+              </div>
+            </div>
+            <div class="is-tarih">
+              {{>vade}}
+              Tarih: {{dateFormat tarih format="DD MMMM YYYY"}}
+            </div>
+            <div class="well">
+              <span class="is-detay">{{#autolink}}{{detay}}{{/autolink}}</span>
+              <div class="is-etiketler">
+                {{#if editable}}
+                  {{#each etiketler}}
+                    {{>etiketEditable}}
+                  {{/each}}
+                  {{#each digerEtiketler}}
+                    {{>digerEtiketEditable}}
+                  {{/each}}
+                {{else}}
+                  {{#each etiketler}}
+                    {{>etiket}}
+                  {{/each}}
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        {{else}}
+          <div class="panel-body text-center">
+            Bu işi yalnızca ilgilileri görüntüleyebilir.
+          </div>
+        {{/if}}
+      </div>
+      {{#if ilgili}}
+
+        {{#each notlari}}
+          {{>not}}
+        {{/each}}
+
+        {{#unless durumKapali}}
+          {{>notEkle}}
+        {{/unless}}
+
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="digerIlgili">
+  <img src="{{ilgiliUser.avatar}}?sz=50" class="img-circle img-is-ilgilisi ilgili" alt="İlgilisi: {{ilgiliUser.name}} {{ilgiliUser.lastName}}" title="İlgilisi: {{ilgiliUser.name}} {{ilgiliUser.lastName}}">
+</template>
+
+<template name="digerIlgiliEditable">
+  <img src="{{ilgiliUser.avatar}}?sz=50" class="img-circle img-is-ilgilisi editable ilgili" alt="İlgiliyi Kaldır: {{ilgiliUser.name}} {{ilgiliUser.lastName}}" title="İlgiliyi Kaldır: {{ilgiliUser.name}} {{ilgiliUser.lastName}}">
+</template>
+
+<template name="ilgisizEditable">
+  <img src="{{avatar}}?sz=50" class="img-circle img-is-ilgilisi editable ilgisiz" alt="İlgili Ekle: {{name}} {{lastName}}" title="İlgili Ekle: {{name}} {{lastName}}">
+</template>
+
+<template name="etiket">
+  <span class="label label-primary label-inline-block">{{this}}</span>
+</template>
+
+<template name="etiketEditable">
+  <span class="label editable label-primary label-inline-block" title="Etiketi Kaldır: {{this}}">{{this}}</span>
+</template>
+
+<template name="digerEtiketEditable">
+  <span class="label editable label-default label-inline-block" title="Etiketi Ekle: {{this}}">{{this}}</span>
+</template>
+
+<template name="vade">
+  {{#if editingVade}}
+    {{>vadeEdit}}
+  {{else}}
+    {{>vadeDisplay}}
+  {{/if}}
+</template>
+
+<template name="vadeDisplay">
+  <span class="pull-right {{#if editableBySahibi}}editable{{/if}} {{isGecikmisVeAcik}}" title="{{#if editableBySahibi}}Vade Değiştir{{/if}}">Vade: {{dateFormat vade format="DD MMMM YYYY"}}</span>
+</template>
+
+<template name="vadeEdit">
+  <span class="pull-right"><input type="text" class="form-control" name="vadeEdit" value="{{dateFormat vade format="YYYY-MM-DD"}}"></span>
+</template>
+
+<template name="not">
+  <div class="well media">
+    <div class="media-left">
+      <img src="{{ekleyenUser.avatar}}?sz=50" class="img-circle img-not-sahibi" alt="Notu Ekleyen: {{ekleyenUser.name}} {{ekleyenUser.lastName}}" title="Notu Ekleyen: {{ekleyenUser.name}} {{ekleyenUser.lastName}}">
+    </div>
+    <div class="media-body">
+      <div class="media-date">{{dateFormat tarih format="DD MMMM YYYY"}}</div>
+      <span class="not-detay">{{#autolink}}{{not}}{{/autolink}}</span>
+    </div>
+  </div>
+</template>
+
+<template name="notEkle">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      {{#autoForm collection="Notlar" id="notEkleForm" type="insert"}}
+        {{> afFieldInput name="is" type="hidden" value=_id}}
+        {{> afQuickField name="not" rows=4}}
+        <button type="submit" class="btn btn-primary btn-lg pull-right">Not Ekle</button>
+      {{/autoForm}}
+    </div>
+  </div>
+</template>
+
+<template name="sorumlu">
+  <img src="{{sorumlusuUser.avatar}}?sz=50" class="img-circle img-is-sorumlusu" alt="Sorumlusu: {{sorumlusuUser.name}} {{sorumlusuUser.lastName}}" title="Sorumlusu: {{sorumlusuUser.name}} {{sorumlusuUser.lastName}}">
+</template>
+
+<template name="sorumluEditable">
+  <span class="dropdown">
+    <a class="sorumlu-degistir dropdown-toggle" data-toggle="dropdown"><img src="{{sorumlusuUser.avatar}}?sz=50" class="img-circle editable img-is-sorumlusu" alt="Sorumlusunu Değiştir: {{sorumlusuUser.name}} {{sorumlusuUser.lastName}}" title="Sorumlusunu Değiştir: {{sorumlusuUser.name}} {{sorumlusuUser.lastName}}"></a>
+    <ul class="dropdown-menu">
+      {{#each sorumlusuHaricExceptAdmin}}
+        {{> sorumlusuHaricExceptAdmin}}
+      {{/each}}
+    </ul>
+  </span>
+</template>
+
+<template name="sorumlusuHaricExceptAdmin">
+  <li><a title="Sorumlusunu {{this.name}} {{this.lastName}} olarak değiştir.">{{this.name}} {{this.lastName}}</a></li>
+</template>

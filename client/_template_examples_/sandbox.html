@@ -1,0 +1,103 @@
+<template name="sandbox">
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-info alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+          <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><a class="pull-right">View all</a>
+            <h3 class="panel-title">Bootstrap Examples</h3>
+          </div>
+          <div class="panel-body">
+            <div class="list-group">
+              <a class="list-group-item">Modal / Dialog</a>
+              <a class="list-group-item">Datetime Examples</a>
+              <a class="list-group-item">Data Grids</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-6">
+
+        <div class="well">
+          <h3 class="panel-title">What's New</h3>
+          <form class="form-horizontal" role="form">
+            <div class="form-group" style="padding:14px;">
+              <textarea class="form-control" placeholder="Update your status"></textarea>
+            </div>
+            <button class="btn btn-success pull-right" type="button">Post</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!--cards-->
+    <div class="row">
+      <div class="col-sm-4">
+        {{> exampleCard}}
+      </div>
+      <div class="col-sm-4">
+        {{> exampleCard}}
+      </div>
+      <div class="col-sm-4">
+        {{> exampleCard}}
+      </div>
+    </div>
+
+    <!--form-->
+    {{> exampleForm}}
+
+    <!--table-->
+    {{> exampleTable}}
+
+
+    <!--login modal-->
+    <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h2 class="text-center">
+              <img src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
+              <br>Login</h2>
+          </div>
+          <div class="modal-body">
+            <form class="form col-md-12 center-block">
+              <div class="form-group">
+                <input type="text" class="form-control input-lg" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control input-lg" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+                <span class="pull-right"><a>Register</a>
+                </span>
+                <span><a>Need help?</a>
+                </span>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="col-md-12">
+              <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!--login modal-->
+
+</template>

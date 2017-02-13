@@ -1,0 +1,62 @@
+<template name="navTop">
+  <div class="navbar-fixed-top hidden-print">
+
+    <div class="row">
+
+      <div class="col-xs-3 col-md-6">
+
+        <a class="navbar-brand" href="/"><img src="/dragomanage-logo.svg"></a>
+
+      </div>
+
+      <div class="col-xs-9 col-md-6 text-right">
+
+        {{>bildirimler}}
+
+        <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th"></i></a>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li class="text-nowrap">
+            <span class="google-apps mail" data-app-mail data-toggle="tooltip" data-placement="top" title="Gmail"></span>
+            <span class="google-apps groups" data-app-groups data-toggle="tooltip" data-placement="top" title="Groups"></span>
+            <span class="google-apps calendar" data-app-calendar data-toggle="tooltip" data-placement="top" title="Calendar"></span>
+          </li>
+          <li class="text-nowrap">
+            <span class="google-apps drive" data-app-drive data-toggle="tooltip" data-placement="bottom" title="Drive"></span>
+            <span class="google-apps contacts" data-app-contacts data-toggle="tooltip" data-placement="bottom" title="Contacts"></span>
+            <span class="google-apps dragomanage" data-app-dm data-toggle="tooltip" data-placement="bottom" title="Dragomanage"></span>
+          </li>
+        </ul>
+
+        <span class="img-profile">
+          <a class="img-profile dropdown-toggle" data-toggle="dropdown"><img class="img-circle img-profile" src="{{currentUser.avatar}}?sz=50" alt="{{currentUser.name}} {{currentUser.lastName}} - {{currentUser.email}}" /></a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="https://accounts.google.com/" target="_blank"><i class="fa fa-fw fa-user menu-icon"></i>Hesap Bilgilerim</a></li>
+            <li><a href="https://plus.google.com/u/0/me" target="_blank"><i class="fa fa-fw fa-google-plus menu-icon"></i>Google Profilim</a></li>
+            <li><a href="/logout"><i class="fa fa-fw fa-power-off menu-icon"></i>Güvenli Çıkış</a></li>
+          </ul>
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+</template>
+
+<template name="bildirimler">
+  <span class="notifications">
+    <a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i></a>
+    {{#if bildirimToplam}}
+      <span class="bildirim-badge badge">{{bildirimToplam}}</span>
+      <ul class="bildirim-menu dropdown-menu">
+        {{#each bildirim}}
+          <li><a href="/isler/is/{{is}}"><span class="bildirim">{{konu}}</span><span class="pull-right badge">{{adet}}</span></a></li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <ul class="bildirim-menu dropdown-menu">
+        <li><a><span class="bildirim">Yeni bildirim yok</span></a></li>
+      </ul>
+    {{/if}}
+  </span>
+</template>

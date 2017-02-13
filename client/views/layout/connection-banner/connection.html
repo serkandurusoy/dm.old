@@ -1,0 +1,21 @@
+<template name="connectionBanner">
+	{{#if wasConnected}}
+		{{#if isDisconnected}}
+      <div class="row">
+        <div class="col-md-12">
+    			<div id="connection-lost-banner" class="alert alert-danger">
+    				<b><i class="fa fa-exclamation-triangle fa-lg"></i> {{connectionLostText}}</b>
+    				&nbsp;&nbsp;
+    				{{reconnectBeforeCountdownText}} {{retryTimeSeconds}} {{reconnectAfterCountdownText}}
+    				&nbsp;&nbsp;
+    				<a href="#" id="connection-try-reconnect" class="alert-link"><i class="fa fa-refresh fa-lg"></i> {{tryReconnectText}}</a>
+    				{{#if failedReason}}
+    					<br>
+    					{{failedReason}}
+    				{{/if}}
+    			</div>
+        </div>
+      </div>
+		{{/if}}
+	{{/if}}
+</template>

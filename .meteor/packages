@@ -1,0 +1,117 @@
+###################################
+# core                            #
+###################################
+email@1.1.18
+random@1.0.10
+#less
+flemay:less-autoprefixer
+reactive-var@1.0.11
+# reactive-dict
+# appcache
+
+###################################
+# security                        #
+###################################
+audit-argument-checks@1.0.7
+service-configuration@1.0.11
+accounts-google@1.0.11
+ongoworks:security
+# alanning:roles
+
+###################################
+# routing                         #
+###################################
+iron:router
+multiply:iron-router-progress
+okgrow:router-autoscroll
+zimme:active-route
+meteorhacks:subs-manager
+# meteorhacks:fast-render
+# ongoworks:speakingurl
+# todda00:friendly-slugs // TODO: get the autoincrement logic from this
+
+###################################
+# utils                           #
+###################################
+# yagni:split-on-newlines
+# underscorestring:underscore.string
+# pcel:accounting
+# 3stack:bignumber
+# ecwyne:mathjs
+# numeral:numeral
+momentjs:moment
+rzymek:moment-locale-tr
+# mrt:moment-timezone
+# flamparski:moment-timezone
+percolate:synced-cron
+# simple:reactive-method
+
+###################################
+# collections                     #
+###################################
+# percolate:migrations
+aldeed:simple-schema
+aldeed:collection2
+# cfs:standard-packages
+# cfs:gridfs
+dburles:collection-helpers
+matb33:collection-hooks
+
+###################################
+# publish                         #
+###################################
+reywood:publish-composite
+meteorhacks:unblock
+# tmeasday:publish-counts
+tmeasday:presence
+# // TODO: yukarıdaki yerine mizzao paketi de olabilir aslinda
+# meteorhacks:aggregate
+# meteorhacks:search-source
+
+###################################
+# forms                           #
+###################################
+aldeed:autoform
+aldeed:autoform-select2
+natestrauser:select2
+zimme:select2-bootstrap3-css
+aldeed:autoform-bs-datepicker
+rajit:bootstrap3-datepicker
+# aldeed:autoform-bs-datetimepicker
+# tsega:bootstrap3-datetimepicker
+# cfs:autoform
+# pcel:serialize
+
+###################################
+# ui                              #
+###################################
+nemo64:bootstrap
+fortawesome:fontawesome
+fastclick@1.0.13
+# hammer:hammer
+awatson1978:browser-detection
+aldeed:tabular
+konecty:autolinker
+pierreeric:rxfavico
+# clinical:barcode
+# steeve:jquery-barcode
+# ongoworks:pdf
+# aldeed:template-extension
+# cfs:ui
+# raix:handlebar-helpers
+# cmather:handlebars-server
+meteor-base@1.0.4
+mobile-experience@1.0.4
+mongo@1.1.14
+blaze-html-templates
+session@1.1.7
+jquery@1.11.10
+tracker@1.1.1
+logging@1.1.16
+reload@1.1.11
+ejson@1.0.13
+spacebars
+check@1.2.4
+standard-minifier-css@1.3.2
+standard-minifier-js@1.2.1
+shell-server
